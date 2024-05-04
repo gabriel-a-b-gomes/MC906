@@ -1664,19 +1664,6 @@ files = [
 ]
 
 [[package]]
-name = "odfpy"
-version = "1.4.1"
-description = "Python API and tools to manipulate OpenDocument files"
-optional = false
-python-versions = "*"
-files = [
-    {file = "odfpy-1.4.1.tar.gz", hash = "sha256:db766a6e59c5103212f3cc92ec8dd50a0f3a02790233ed0b52148b70d3c438ec"},
-]
-
-[package.dependencies]
-defusedxml = "*"
-
-[[package]]
 name = "overrides"
 version = "7.7.0"
 description = "A decorator to automatically detect mismatch when overriding a method."
@@ -2858,4 +2845,4 @@ files = [
 [metadata]
 lock-version = "2.0"
 python-versions = "^3.10"
-content-hash = "3cec0fc43e16b8a8dfa2f891b20f68519f1dc833b5cf5674cf9e4cb1aeef282b"
+content-hash = "fc96d9c4c18dcc3bc7d717c0e6cdf3a84bce6fd86bec436ba354516a530b376b"

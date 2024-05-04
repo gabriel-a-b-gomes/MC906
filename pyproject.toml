@@ -1,8 +1,12 @@
 [tool.poetry]
-name = "mc906"
+name = "MC906 - Introdução à Inteligência Artificial"
 version = "0.1.0"
-description = ""
-authors = ["Cristiano <cristianosampaio16@gmail.com>"]
+description = "Projeto da disciplina MC906 ministrada no primeiro semestre de 2024 na Unicamp."
+authors = [
+  "Cristiano Sampaio <c256352@dac.unicamp.br>",
+  "Gabriel Augusto <g248287@dac.unicamp.br>",
+  "Paulo Victor <p248438@dac.unicamp.br>" 
+]
 readme = "README.md"
 package-mode = false
 

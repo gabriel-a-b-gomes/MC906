@@ -25,6 +25,3 @@ dict_afd = {
   "MED_CAT_4": "MED_ADEQ_DOC_GRUPO4",
   "MED_CAT_5": "MED_ADEQ_DOC_GRUPO5",
 }
-
-def get_afd_dict():
-  return dict_afd

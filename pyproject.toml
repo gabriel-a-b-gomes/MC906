@@ -1,0 +1,28 @@
+[tool.poetry]
+name = "MC906 - Introdução à Inteligência Artificial"
+version = "0.1.0"
+description = "Projeto da disciplina MC906 ministrada no primeiro semestre de 2024 na Unicamp."
+authors = [
+  "Cristiano Sampaio <c256352@dac.unicamp.br>",
+  "Gabriel Augusto <g248287@dac.unicamp.br>",
+  "Paulo Victor <p248438@dac.unicamp.br>" 
+]
+readme = "README.md"
+package-mode = false
+
+[tool.poetry.dependencies]
+python = "^3.10"
+numpy = "^1.26.4"
+pandas = "^2.2.2"
+matplotlib = "^3.8.4"
+itables = "^2.0.1"
+scikit-learn = "^1.4.2"
+seaborn = "^0.13.2"
+
+
+[tool.poetry.group.dev.dependencies]
+jupyter = "^1.0.0"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"

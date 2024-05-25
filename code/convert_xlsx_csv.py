@@ -366,7 +366,17 @@ class RawFile:
   def prune_lines(self):
     print("Iniciando corte de linhas...", end=" ")
     
-    first_index = self.file[self.file.iloc[:, 0].fillna('').astype(str).str.contains('ANO_CENSO')].index[0]
+    first_index = 0
+    
+    first_row = self.file[self.file.iloc[:, 0].fillna('').astype(str).str.contains('ANO_CENSO')]
+    
+    if not first_row.empty:
+      first_index = first_row.index[0]
+    else:
+      first_row = self.file[self.file.iloc[:, 1].fillna('').astype(str).str.contains('NO_REGIAO')]
+      
+      if not first_row.empty:
+        first_index = first_row.index[0]
     
         # Find the index of the last row
     last_index = len(self.file) - 1

@@ -360,7 +360,7 @@ class RawFile:
     print("COMPLETE")
     
   def __read_csv(self):
-    self.file = pd.read_csv(self.path)
+    self.file = pd.read_csv(self.path, delimiter=";")
     print("COMPLETE")
     
   def prune_lines(self):
@@ -394,8 +394,11 @@ class RawFile:
 
     columns = self.file.iloc[first_index]
     
-    self.file = self.file.iloc[first_index+1:index]
-    self.file.columns = columns
+    if first_index > 0:  
+      self.file = self.file.iloc[first_index+1:index]
+      self.file.columns = columns
+    else:
+      self.file = self.file.iloc[:index]
     
     print("COMPLETE")
   

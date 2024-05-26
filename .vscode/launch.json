@@ -10,7 +10,7 @@
       "request": "launch",
       "program": "${file}",
       "console": "integratedTerminal",
-      "args": "./data/interim/2016_NCR/TXR_CLEAN.csv ./data/interim/2016_NCR/TXR_CLEAN.csv drop"
+      "args": "./data/raw/2018/DSU_MUNICIPIOS_2018_ATUALIZADO.xlsx ./data/interim/2018_NCR/DSU_CLEAN.csv drop"
     }
   ]
 }

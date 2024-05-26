@@ -360,13 +360,23 @@ class RawFile:
     print("COMPLETE")
     
   def __read_csv(self):
-    self.file = pd.read_csv(self.path)
+    self.file = pd.read_csv(self.path, delimiter=";")
     print("COMPLETE")
     
   def prune_lines(self):
     print("Iniciando corte de linhas...", end=" ")
     
-    first_index = self.file[self.file.iloc[:, 0].fillna('').astype(str).str.contains('ANO_CENSO')].index[0]
+    first_index = 0
+    
+    first_row = self.file[self.file.iloc[:, 0].fillna('').astype(str).str.contains('ANO_CENSO')]
+    
+    if not first_row.empty:
+      first_index = first_row.index[0]
+    else:
+      first_row = self.file[self.file.iloc[:, 1].fillna('').astype(str).str.contains('NO_REGIAO')]
+      
+      if not first_row.empty:
+        first_index = first_row.index[0]
     
         # Find the index of the last row
     last_index = len(self.file) - 1
@@ -384,8 +394,11 @@ class RawFile:
 
     columns = self.file.iloc[first_index]
     
-    self.file = self.file.iloc[first_index+1:index]
-    self.file.columns = columns
+    if first_index > 0:  
+      self.file = self.file.iloc[first_index+1:index]
+      self.file.columns = columns
+    else:
+      self.file = self.file.iloc[:index]
     
     print("COMPLETE")
   

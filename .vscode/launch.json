@@ -10,7 +10,7 @@
       "request": "launch",
       "program": "${file}",
       "console": "integratedTerminal",
-      "args": "./data/raw/2017/TX_REND_MUNICIPIOS_2017.csv ./data/interim/2017_NCR/TXR_CLEAN.csv drop"
+      "args": "./data/interim/2016_NCR/TXR_CLEAN.csv ./data/interim/2016_NCR/TXR_CLEAN.csv drop"
     }
   ]
 }

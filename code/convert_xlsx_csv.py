@@ -307,9 +307,9 @@ class ColumnName:
       self.main_dict = self.__get_final_dict(dict_tdi)
     elif "tnr" in self.path:
       self.main_dict = self.__get_final_dict(dict_tnr)
-    elif "rend" in self.path:
+    elif "rend" in self.path or "txr" in self.path:
       self.main_dict = self.__get_final_dict(dict_tx_aprov, dict_tx_reprov, dict_tx_abandono)
-    elif "transicao" in self.path:
+    elif "transicao" in self.path or "txt" in self.path:
       self.main_dict = self.__get_final_dict(dict_tx_promo, dict_tx_repet, dict_tx_evasao)
     elif "had" in self.path:
       self.main_dict = self.__get_final_dict(dict_had)
@@ -413,14 +413,14 @@ class RawFile:
       return lambda col: col == "MED_04_CAT_0" or col == "MED_NS_CAT_0"
     elif "tnr" in input_path:
       return lambda col: col.endswith("_MED_NS") or col.endswith("_MED_04")
-    elif "rend" in input_path:
+    elif "rend" in input_path or "txr" in input_path:
       return lambda col: col.endswith("_MED_NS") or col.endswith("_MED_04")
-    elif "transicao" in input_path:
+    elif "transicao" in input_path or "txt" in input_path:
       return lambda col: col.startswith("1_CAT4_") or col == "MED_NS_CAT_01"
     elif "had" in input_path:
       return lambda col: col == "MED_04_CAT_0" or col == "MED_NS_CAT_01"
     elif "dsu" in input_path:
-      return lambda col: col == "PROF_CAT_0" or col == "EJA_CAT_0" or col == "EDU_BAS_CAT_0"
+      return lambda col: col == "PROF_CAT_0" or col == "EJA_CAT_0" or col == "EDU_BAS_CAT_0" or col == "EDU_BAS_CAT_1"
 
   def prune_columns(self):
     prunning = self.__prune_by_file()
@@ -446,9 +446,9 @@ class RawFile:
       return lambda col: re.match('^MED_\d{2}_CAT_0$', col) or re.match('^FUN_\d{2}_CAT_0$', col) or "_AI_" in col or "_AF_" in col
     elif "tnr" in input_path:
       return lambda col: col.startswith('4_CAT_FUN_') or col.startswith('4_CAT_MED_') or "_AI_" in col or "_AF_" in col
-    elif "rend" in input_path:
+    elif "rend" in input_path or "txr" in input_path:
       return lambda col: col.startswith('1_CAT_FUN_') or col.startswith('1_CAT_MED_') or col.startswith('2_CAT_FUN_') or col.startswith('2_CAT_MED_') or col.startswith('3_CAT_FUN_') or col.startswith('3_CAT_MED_') or "_AI_" in col or "_AF_" in col
-    elif "transicao" in input_path:
+    elif "transicao" in input_path or "txt" in input_path:
       return lambda col: col.startswith('1_CAT1_CATFUN_') or col.startswith('1_CAT1_CATMED_') or col.startswith('1_CAT2_CATFUN_') or col.startswith('1_CAT2_CATMED_') or col.startswith('1_CAT3_CATFUN_') or col.startswith('1_CAT3_CATMED_') or "_AI_" in col or "_AF_" in col
     elif "had" in input_path:
       return lambda col: col == "CRE_CAT_0" or col == "PRE_CAT_0" or re.match('^MED_\d{2}_CAT_0$', col) or re.match('^FUN_\d{2}_CAT_0$', col) or "_AI_" in col or "_AF_" in col
